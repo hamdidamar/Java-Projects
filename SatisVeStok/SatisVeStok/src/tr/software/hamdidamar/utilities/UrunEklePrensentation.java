@@ -5,6 +5,7 @@
  */
 package tr.software.hamdidamar.utilities;
 
+import com.toedter.calendar.JDateChooser;
 import java.awt.GridLayout;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -42,7 +43,7 @@ public class UrunEklePrensentation extends JDialog implements presentationInterf
 
     @Override
     public JPanel initPanel() {
-        JPanel panel = new JPanel(new GridLayout(4, 2)); //Tarih Eklenince 5,2 olacak
+        JPanel panel = new JPanel(new GridLayout(5, 2)); 
         JLabel LblUrunAd = new JLabel("Urun Ad:",JLabel.RIGHT);
         panel.add(LblUrunAd);
         JTextField UrunAdField = new JTextField(10);
@@ -51,11 +52,10 @@ public class UrunEklePrensentation extends JDialog implements presentationInterf
         panel.add(LblUrunKategori);
         JComboBox UrunKategoriBox = new JComboBox();
         panel.add(UrunKategoriBox);
-        //Tarih Eklemesi Yapılacak
-        //JLabel LblUrunTarih = new JLabel("Urun Tarih:",JLabel.RIGHT);
-        //panel.add(LblUrunTarih);
-        //JDateChooser UrunTarihDate = new JDateChooser();
-        //panel.add(UrunTarihDate);
+        JLabel LblUrunTarih = new JLabel("Urun Tarih:",JLabel.RIGHT);
+        panel.add(LblUrunTarih);
+        JDateChooser UrunTarihDate = new JDateChooser();
+        panel.add(UrunTarihDate);
         JLabel LblUrunFiyat = new JLabel("Urun Fiyat:",JLabel.RIGHT);
         panel.add(LblUrunFiyat);
         JTextField UrunFiyatField = new JTextField(10);
