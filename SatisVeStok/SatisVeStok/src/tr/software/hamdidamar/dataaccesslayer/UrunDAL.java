@@ -43,13 +43,13 @@ public class UrunDAL<UrunContract> extends ObjectHelper implements dataaccesslay
 
     @Override
     public List<UrunContract> GetAll() {
-        List<UrunContract> dataKategoricontracts = new ArrayList<UrunContract>();
+        List<UrunContract> dataUruncontracts = new ArrayList<UrunContract>();
         
         Connection connection = getConnection();
         UrunContract contract;
         try {
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM Tbl_Kategori");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM Tbl_Urun");
             while (resultSet.next()) {
                 contract = new UrunContract();
                 contract.setUrunId(resultSet.getInt("UrunId"));
@@ -62,7 +62,7 @@ public class UrunDAL<UrunContract> extends ObjectHelper implements dataaccesslay
             Logger.getLogger(UrunDAL.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return dataKategoricontracts;
+        return dataUruncontracts;
     }
 
     @Override

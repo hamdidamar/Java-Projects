@@ -49,7 +49,7 @@ public class AccountDAL<AccountContract> extends ObjectHelper implements dataacc
                 contract = new AccountContract();
                 contract.setAccountId(resultSet.getInt("AccountId"));
                 contract.getAccountYetkiId(resultSet.getInt("AccountYetkiId"));
-                contract.getAccountPersonelId(resultSet.getString("AccountPersonelId"));
+                contract.getAccountPersonelId(resultSet.getInt("AccountPersonelId"));
                 contract.getAccountSifre(resultSet.getString("AccountSifre"));
             }
         } catch (SQLException ex) {

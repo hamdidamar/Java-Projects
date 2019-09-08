@@ -47,7 +47,7 @@ public class KategoriDAL<KategoriContract> extends ObjectHelper implements dataa
                 contract = new KategoriContract();
                 contract.setKategoriId(resultSet.getInt("KategoriId"));
                 contract.setKategoriAd(resultSet.getString("KategoriAd"));
-                contract.setKategoriParentId(resultSet.getString("KategoriParentId"));
+                contract.setKategoriParentId(resultSet.getInt("KategoriParentId"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(KategoriDAL.class.getName()).log(Level.SEVERE, null, ex);
