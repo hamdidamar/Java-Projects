@@ -14,10 +14,11 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import tr.software.hamdidamar.core.ObjectHelper;
+import tr.software.hamdidamar.entity.KategoriContract;
 import tr.software.hamdidamar.interfaces.dataaccesslayerInterfaces;
 
 
-public class KategoriDAL<KategoriContract> extends ObjectHelper implements dataaccesslayerInterfaces<KategoriContract>{
+public class KategoriDAL extends ObjectHelper implements dataaccesslayerInterfaces<KategoriContract>{
 
     @Override
     public void Insert(KategoriContract entity) {

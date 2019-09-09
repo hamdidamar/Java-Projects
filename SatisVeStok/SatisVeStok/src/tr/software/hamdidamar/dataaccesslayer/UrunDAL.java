@@ -16,13 +16,14 @@ import java.util.logging.Logger;
 import tr.software.hamdidamar.core.ObjectHelper;
 import tr.software.hamdidamar.interfaces.dataaccesslayerInterfaces;
 import org.omg.IOP.ENCODING_CDR_ENCAPS;
+import tr.software.hamdidamar.entity.UrunContract;
 
 
 /**
  *
  * @author hmdmr
  */
-public class UrunDAL<UrunContract> extends ObjectHelper implements dataaccesslayerInterfaces<UrunContract> {
+public class UrunDAL extends ObjectHelper implements dataaccesslayerInterfaces<UrunContract> {
 
     @Override
     public void Insert(UrunContract entity) {
@@ -32,7 +33,7 @@ public class UrunDAL<UrunContract> extends ObjectHelper implements dataaccesslay
         try {
             Statement statement = connection.createStatement();
             statement.executeUpdate("INSERT INTO Tbl_Urun(UrunAd,UrunKategoriId,UrunTarih,UrunFiyat)"
-                    +"VALUES('"+entity.getUrunAd()+"',"+entity.getKategoriId()+",'"+entity.getUrunTarih()+"',"+entity.getFiyat()+")");
+                    +"VALUES('"+entity.getUrunAd()+"',"+entity.getUrunKategoriId()+",'"+entity.getUrunTarih()+"',"+entity.getUrunFiyat()+")");
             statement.close();
             statement.close(); 
         } catch (SQLException ex) {
@@ -54,9 +55,9 @@ public class UrunDAL<UrunContract> extends ObjectHelper implements dataaccesslay
                 contract = new UrunContract();
                 contract.setUrunId(resultSet.getInt("UrunId"));
                 contract.setUrunAd(resultSet.getString("UrunAd"));
-                contract.setUrunKategoriId(resultSet.getString("UrunKategoriId"));
-                contract.setUrunTarih(resultSet.getString("UrunTarih"));
-                contract.setUrunFiyat(resultSet.getString("UrunFiyat"));
+                contract.setUrunKategoriId(resultSet.getInt("UrunKategoriId"));
+                contract.setUrunTarih(resultSet.getDate("UrunTarih"));
+                contract.setUrunFiyat(resultSet.getInt("UrunFiyat"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(UrunDAL.class.getName()).log(Level.SEVERE, null, ex);

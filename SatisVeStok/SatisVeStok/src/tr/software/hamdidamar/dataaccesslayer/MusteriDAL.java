@@ -14,13 +14,15 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import tr.software.hamdidamar.core.ObjectHelper;
+import tr.software.hamdidamar.entity.KategoriContract;
+import tr.software.hamdidamar.entity.MusteriContract;
 import tr.software.hamdidamar.interfaces.dataaccesslayerInterfaces;
 
 /**
  *
  * @author hmdmr
  */
-public class MusteriDAL<MusteriContract> extends ObjectHelper implements dataaccesslayerInterfaces<MusteriContract>{
+public class MusteriDAL extends ObjectHelper implements dataaccesslayerInterfaces<MusteriContract>{
 
     @Override
     public void Insert(MusteriContract entity) {
@@ -38,7 +40,7 @@ public class MusteriDAL<MusteriContract> extends ObjectHelper implements dataacc
 
     @Override
     public List<MusteriContract> GetAll() {
-        List<MusteriContract> dataMustericontracts = new ArrayList<MusteriContract>();
+        List<MusteriContract> dataMusteriContracts = new ArrayList<MusteriContract>();
         
         Connection connection = getConnection();
         MusteriContract contract;
@@ -48,14 +50,16 @@ public class MusteriDAL<MusteriContract> extends ObjectHelper implements dataacc
             while (resultSet.next()) {
                 contract = new MusteriContract();
                 contract.setMusteriId(resultSet.getInt("MusteriId"));
-                contract.setMusteriAd(resultSet.getString("MusteriAdSoyad"));
-                contract.setMusteriParentId(resultSet.getString("MusteriTelefon"));
-                contract.setMusteriParentId(resultSet.getString("MusteriAdres"));
-                contract.setMusteriParentId(resultSet.getInt("MusteriSehirId"));
+                contract.setMusteriAdSoyad(resultSet.getString("MusteriAdSoyad"));
+                contract.setMusteriTelefon(resultSet.getString("MusteriTelefon"));
+                contract.setMusteriAdres(resultSet.getString("setMusteriAdres"));
+                contract.setMusteriSehirId(resultSet.getInt("setMusteriSehirId"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(MusteriDAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KategoriDAL.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        return dataMusteriContracts;
     }
 
     @Override

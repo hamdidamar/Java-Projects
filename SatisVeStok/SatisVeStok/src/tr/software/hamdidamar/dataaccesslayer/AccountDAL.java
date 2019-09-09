@@ -14,14 +14,16 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import tr.software.hamdidamar.core.ObjectHelper;
+import tr.software.hamdidamar.entity.AccountContract;
 import tr.software.hamdidamar.interfaces.dataaccesslayerInterfaces;
 
 /**
  *
  * @author hmdmr
  */
-public class AccountDAL<AccountContract> extends ObjectHelper implements dataaccesslayerInterfaces<AccountContract>{
+public class AccountDAL extends ObjectHelper implements dataaccesslayerInterfaces<AccountContract>{
 
+    
     @Override
     public void Insert(AccountContract entity) {
         Connection connection = getConnection();
@@ -44,13 +46,13 @@ public class AccountDAL<AccountContract> extends ObjectHelper implements dataacc
         AccountContract contract;
         try {
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM Tbl_Kategori");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM Tbl_Account");
             while (resultSet.next()) {
                 contract = new AccountContract();
                 contract.setAccountId(resultSet.getInt("AccountId"));
-                contract.getAccountYetkiId(resultSet.getInt("AccountYetkiId"));
-                contract.getAccountPersonelId(resultSet.getInt("AccountPersonelId"));
-                contract.getAccountSifre(resultSet.getString("AccountSifre"));
+                contract.setAccountYetkiId(resultSet.getInt("AccountYetkiId"));
+                contract.setAccountPersonelId(resultSet.getInt("AccountPersonelId"));
+                contract.setAccountSifre(resultSet.getString("AccountSifre"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(AccountDAL.class.getName()).log(Level.SEVERE, null, ex);

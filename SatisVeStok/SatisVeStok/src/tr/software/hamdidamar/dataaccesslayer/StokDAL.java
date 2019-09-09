@@ -14,13 +14,14 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import tr.software.hamdidamar.core.ObjectHelper;
+import tr.software.hamdidamar.entity.StokContract;
 import tr.software.hamdidamar.interfaces.dataaccesslayerInterfaces;
 
 /**
  *
  * @author hmdmr
  */
-public class StokDAL<StokContract> extends ObjectHelper implements dataaccesslayerInterfaces<StokContract>{
+public class StokDAL extends ObjectHelper implements dataaccesslayerInterfaces<StokContract>{
 
     @Override
     public void Insert(StokContract entity) {
@@ -56,6 +57,7 @@ public class StokDAL<StokContract> extends ObjectHelper implements dataaccesslay
         } catch (SQLException ex) {
             Logger.getLogger(StokDAL.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return dataStokcontracts;
     }
 
     @Override

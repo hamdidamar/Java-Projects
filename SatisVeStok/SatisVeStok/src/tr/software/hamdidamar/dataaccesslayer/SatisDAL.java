@@ -14,13 +14,14 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import tr.software.hamdidamar.core.ObjectHelper;
+import tr.software.hamdidamar.entity.SatisContract;
 import tr.software.hamdidamar.interfaces.dataaccesslayerInterfaces;
 
 /**
  *
  * @author hmdmr
  */
-public class SatisDAL<SatisContract> extends ObjectHelper implements dataaccesslayerInterfaces<SatisContract>{
+public class SatisDAL extends ObjectHelper implements dataaccesslayerInterfaces<SatisContract>{
 
     @Override
     public void Insert(SatisContract entity) {
@@ -57,6 +58,7 @@ public class SatisDAL<SatisContract> extends ObjectHelper implements dataaccessl
         } catch (SQLException ex) {
             Logger.getLogger(SatisDAL.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return dataSatiscontracts;
     }
 
     @Override

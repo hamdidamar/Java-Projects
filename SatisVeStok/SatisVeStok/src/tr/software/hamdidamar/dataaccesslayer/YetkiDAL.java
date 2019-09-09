@@ -14,13 +14,14 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import tr.software.hamdidamar.core.ObjectHelper;
+import tr.software.hamdidamar.entity.YetkiContract;
 import tr.software.hamdidamar.interfaces.dataaccesslayerInterfaces;
 
 /**
  *
  * @author hmdmr
  */
-public class YetkiDAL<YetkiContract> extends ObjectHelper implements dataaccesslayerInterfaces<YetkiContract>{
+public class YetkiDAL extends ObjectHelper implements dataaccesslayerInterfaces<YetkiContract>{
 
     @Override
     public void Insert(YetkiContract entity) {
