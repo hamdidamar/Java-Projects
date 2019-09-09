@@ -11,25 +11,20 @@ package tr.software.hamdidamar.core;
  */
 public class CoreFields {
     
-    private String userName="root";
-    private String password="";
-    private String url="";
+    private final String userName="hamdidamar";
+    private final String password="";
+    private final String url="jdbc:mysql://localhost:3306/dbostokvesatis?useUnicode=true&characterEncoding=utf8";
 
-    
     public String getUserName() {
         return userName;
     }
 
-    
     public String getPassword() {
         return password;
     }
 
-    
     public String getUrl() {
         return url;
     }
-
-    
-    
+ 
 }
